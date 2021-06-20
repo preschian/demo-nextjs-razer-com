@@ -104,7 +104,26 @@ const menus = [
     ],
   },
 ];
-const menusElement = menus.map((menu) => {
+const otherMenus = [
+  {
+    text: 'Site Map',
+    href: 'https://www.razer.com/sitemap',
+  },
+  {
+    text: 'Legal Terms',
+    href: 'https://www.razer.com/legal',
+  },
+  {
+    text: 'Privacy Policy',
+    href: 'https://www.razer.com/legal/customer-privacy-policy',
+  },
+  {
+    text: 'Cookie Policy',
+    href: 'https://www.razer.com/legal/cookies',
+  },
+];
+
+const menusComponent = menus.map((menu) => {
   return (
     <div key={menu.title} className="mb-4 pb-4 border-b border-black-lighter">
       <p>{menu.title}</p>
@@ -125,26 +144,7 @@ const menusElement = menus.map((menu) => {
     </div>
   );
 });
-
-const otherMenus = [
-  {
-    text: 'Site Map',
-    href: 'https://www.razer.com/sitemap',
-  },
-  {
-    text: 'Legal Terms',
-    href: 'https://www.razer.com/legal',
-  },
-  {
-    text: 'Privacy Policy',
-    href: 'https://www.razer.com/legal/customer-privacy-policy',
-  },
-  {
-    text: 'Cookie Policy',
-    href: 'https://www.razer.com/legal/cookies',
-  },
-];
-const otherMenusElement = otherMenus.map((other) => {
+const otherMenusComponent = otherMenus.map((other) => {
   return (
     <a href={other.href} key={other.href} target="_blank" rel="noreferrer">
       {other.text}
@@ -155,14 +155,14 @@ const otherMenusElement = otherMenus.map((other) => {
 export default function footer() {
   return (
     <div className="p-6">
-      {menusElement}
+      {menusComponent}
       <p className="mt-7 text-center text-xs">
         Copyright © 2021 Razer Inc. All rights reserved. <br />
         For demo purposes only
       </p>
 
       <div className="text-xs mt-7 pb-7 text-black-lighter flex justify-between border-b border-black-lighter">
-        {otherMenusElement}
+        {otherMenusComponent}
       </div>
 
       <div className="text-green mt-7 text-xs flex justify-center items-center gap-4">
