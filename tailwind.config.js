@@ -9,6 +9,7 @@ module.exports = {
         },
         black: {
           light: '#222',
+          lighter: '#999',
         },
       },
     },
