@@ -1,3 +1,4 @@
+// type
 import { BannerType } from './data/banners';
 
 function BannerItem({
