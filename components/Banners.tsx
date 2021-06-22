@@ -24,12 +24,12 @@ export default function Banners() {
   };
 
   return (
-    <div>
+    <>
       {bannerElement(banners)}
 
       <div className="lg:grid lg:grid-cols-2 lg:gap-2">
         {bannerElement(banners_grid)}
       </div>
-    </div>
+    </>
   );
 }
