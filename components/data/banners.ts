@@ -127,6 +127,20 @@ const banners_grid: BannerType = [
     ],
   },
   {
+    title: 'RELOAD. RACK UP. REDEEM.',
+    subtitle: 'REVOLUTIONIZE YOUR PLAY WITH RAZER GOLD',
+    image:
+      'https://assets2.razerzone.com/images/pnx.assets/b17b0985e9a147f24a5e086217239552/rz-gold-b-480x615-mobile.jpg',
+    image_desktop:
+      'https://assets2.razerzone.com/images/pnx.assets/b17b0985e9a147f24a5e086217239552/rz-gold-b-950x580-desktop.jpg',
+    links: [
+      {
+        text: 'Learn More',
+        href: 'https://www.razer.com/campaigns/razer-gold-x',
+      },
+    ],
+  },
+  {
     title: 'RAZER SILVER & SKIBRE',
     subtitle: 'A NEW CASUAL WAY TO EARN',
     image:
