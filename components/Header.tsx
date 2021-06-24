@@ -5,18 +5,25 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { IconMenu, IconCart } from './Icons';
 import HeaderMenu from './HeaderMenu';
+import HeaderMenuDesktop from './HeaderMenuDesktop';
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <>
-      <div className="h-14 fixed w-full z-20 bg-black">
-        <div className="flex items-center justify-between h-full">
-          <div className="px-6" onClick={() => setOpenMenu(!openMenu)}>
+      <div className="h-14 fixed w-full z-20 bg-black left-0">
+        <div className="flex items-center justify-between h-full container lg:px-6">
+          {/* menu for mobile version */}
+          <div
+            className="px-6 lg:hidden"
+            onClick={() => setOpenMenu(!openMenu)}
+          >
             <IconMenu isOpen={openMenu} />
           </div>
-          <div>
+
+          {/* razer logo */}
+          <div className="lg:pr-6">
             <Link href="/">
               <a>
                 <img
@@ -27,11 +34,25 @@ function Header() {
               </a>
             </Link>
           </div>
-          <div className="px-6">
-            <IconCart />
+
+          <div className="hidden lg:block w-full h-full">
+            <HeaderMenuDesktop />
+          </div>
+
+          {/* cart */}
+          <div className="px-6 lg:pr-0">
+            <a
+              href="https://www.razer.com/cart"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <IconCart />
+            </a>
           </div>
         </div>
       </div>
+
+      {/* menu for mobile version */}
       {openMenu && <HeaderMenu />}
     </>
   );

@@ -5,12 +5,14 @@ export type Submenu = {
 
 export type Menu = {
   href?: string;
+  link?: string;
   text: string;
   submenus?: Submenu;
 }[];
 
 export const menus: Menu = [
   {
+    link: 'https://www.razer.com/pc',
     text: 'PC',
     submenus: [
       {
