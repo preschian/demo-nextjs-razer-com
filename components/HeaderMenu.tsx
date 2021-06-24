@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 // data
 import { menus } from './data/header';
@@ -25,9 +25,11 @@ const Navigation = () => {
         {submenus.map((submenu) => {
           return (
             <a
-              href=""
-              key={submenu.href}
+              href={submenu.href}
+              key={submenu.text}
               className="block text-lg pb-3 mb-3 ml-6 border-b border-black-lighter text-white"
+              target="_blank"
+              rel="noreferrer"
             >
               {submenu.text}
             </a>
@@ -42,9 +44,8 @@ const Navigation = () => {
       {menus.map((menu) => {
         if (menu.submenus) {
           return (
-            <>
+            <div key={menu.text}>
               <a
-                key={menu.href}
                 onClick={() => setOpen(!isOpen)}
                 className="text-lg items-start gap-2 pb-3 mb-3 border-b border-black-lighter flex"
               >
@@ -52,14 +53,14 @@ const Navigation = () => {
                 <IconArrow />
               </a>
               {isOpen && <Submenus submenus={menu.submenus} />}
-            </>
+            </div>
           );
         }
 
         return (
           <a
             href={menu.href}
-            key={menu.href}
+            key={menu.text}
             className="block text-lg pb-3 mb-3 border-b border-black-lighter"
             target="_blank"
             rel="noreferrer"
@@ -73,8 +74,26 @@ const Navigation = () => {
 };
 
 function HeaderMenu() {
+  const [textSearch, setSearch] = useState('');
+
+  function onEnter(event: React.KeyboardEvent) {
+    if (event.key === 'Enter') {
+      window
+        .open(`https://www.razer.com/search/${textSearch}`, '_blank')
+        ?.focus();
+    }
+  }
+
   return (
     <div className="bg-black fixed inset-0 z-20 mt-14 p-6 text-black-lighter overflow-auto">
+      <input
+        type="text"
+        className="w-full bg-black-light text-black-lighter py-2 px-3 rounded mb-6"
+        placeholder="Search Razer.com"
+        value={textSearch}
+        onChange={(e) => setSearch(e.target.value)}
+        onKeyDown={onEnter}
+      />
       <Navigation />
     </div>
   );
