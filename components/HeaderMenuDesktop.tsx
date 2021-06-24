@@ -17,11 +17,21 @@ function HeaderMenuDesktop() {
   return (
     <div className="flex justify-around text-black-lighter relative h-full items-center">
       {menus.map((menu) => {
-        return <p key={menu.text}>{menu.text}</p>;
+        return (
+          <a
+            key={menu.text}
+            href={menu.href || menu.link}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-white"
+          >
+            {menu.text}
+          </a>
+        );
       })}
 
       {/* search button */}
-      <div onClick={() => setOpen(true)}>
+      <div onClick={() => setOpen(true)} className="cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
@@ -51,7 +61,7 @@ function HeaderMenuDesktop() {
           />
 
           <div
-            className="absolute top-0 right-0 p-4"
+            className="absolute top-0 right-0 p-4 cursor-pointer"
             onClick={() => setOpen(false)}
           >
             <svg

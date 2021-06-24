@@ -12,8 +12,8 @@ function Header() {
 
   return (
     <>
-      <div className="h-14 fixed w-full z-20 bg-black">
-        <div className="flex items-center justify-between h-full container">
+      <div className="h-14 fixed w-full z-20 bg-black left-0">
+        <div className="flex items-center justify-between h-full container lg:px-6">
           {/* menu for mobile version */}
           <div
             className="px-6 lg:hidden"
